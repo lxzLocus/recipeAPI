@@ -4,7 +4,10 @@ services:
       context: ./
       dockerfile: Dockerfile
     container_name: recipeAPI
+    restart: unless-stopped
     tty: true
+    ports:
+      - "3000:3000"
     volumes:
       - /app/node_modules 
       - type: bind
