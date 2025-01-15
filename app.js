@@ -111,7 +111,7 @@ app.get("/recipes/:id", function (req, res) {
         if (recipe) {
             res.status(200).json({
                 message: "Recipe details by id",
-                recipe: recipe
+                recipe: [recipe]
             });
         } else {
             res.status(404).json({
