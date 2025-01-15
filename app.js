@@ -28,10 +28,17 @@ app.post("/recipes", function (req, res) {
     const { title, making_time, serves, ingredients, cost } = req.body;
 
     //情報が抜けている場合
-    if (!title || !making_time || !serves || !ingredients || !cost) {
+    const missingFields = [];
+    if (!title) missingFields.push("title");
+    if (!making_time) missingFields.push("making_time");
+    if (!serves) missingFields.push("serves");
+    if (!ingredients) missingFields.push("ingredients");
+    if (!cost) missingFields.push("cost");
+
+    if (missingFields.length > 0) {
         return res.status(400).json({
-            message: "Recipe creation failed!",
-            required: "title, making_time, serves, ingredients, cost"
+            message: "Recipe update failed!",
+            required: missingFields.join(", ")
         });
     }
 
@@ -124,10 +131,17 @@ app.patch("/recipes/:id", function (req, res) {
     const { title, making_time, serves, ingredients, cost } = req.body;
 
     //情報が抜けている場合
-    if (!title || !making_time || !serves || !ingredients || !cost) {
+    const missingFields = [];
+    if (!title) missingFields.push("title");
+    if (!making_time) missingFields.push("making_time");
+    if (!serves) missingFields.push("serves");
+    if (!ingredients) missingFields.push("ingredients");
+    if (!cost) missingFields.push("cost");
+
+    if (missingFields.length > 0) {
         return res.status(400).json({
             message: "Recipe update failed!",
-            required: "title, making_time, serves, ingredients, cost"
+            required: missingFields.join(", ")
         });
     }
 
