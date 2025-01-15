@@ -37,7 +37,7 @@ app.post("/recipes", function (req, res) {
 
     if (missingFields.length > 0) {
         return res.status(200).json({
-            message: "Recipe update failed!",
+            message: "Recipe creation failed!",
             required: missingFields.join(", ")
         });
     }
@@ -139,7 +139,7 @@ app.patch("/recipes/:id", function (req, res) {
     if (!cost) missingFields.push("cost");
 
     if (missingFields.length > 0) {
-        return res.status(400).json({
+        return res.status(200).json({
             message: "Recipe update failed!",
             required: missingFields.join(", ")
         });
