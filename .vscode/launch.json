@@ -1,0 +1,34 @@
+{
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Docker Debug JavaScript",
+      "type": "node",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${file}",
+      "outFiles": ["app/**/*.js"]
+    },
+    {
+      "name": "Docker Debug TypeScript",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "Compile TypeScript",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      // "args": ["aaa"]
+    },
+    {
+      "name": "Use Stdin",
+      "type": "node",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${file}",
+      "outFiles": ["app/**/*.js"],
+      "args": [""]
+    },
+  ]
+}

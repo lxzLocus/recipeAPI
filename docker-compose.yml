@@ -1,0 +1,12 @@
+services:
+  node:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: recipeAPI
+    tty: true
+    volumes:
+      - /app/node_modules 
+      - type: bind
+        source: ./
+        target: /app
